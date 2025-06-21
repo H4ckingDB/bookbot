@@ -12,8 +12,22 @@ def count_characters(text):
     }
 
     for char in text:
-        lowercase_word = str.lower(word)
-        print(lowercase_word)
+        char = char.lower()
+        #print(char)
         if char in dictionary:
-            dictionary[letter] += 1
-            
+            dictionary[char] += 1
+    return dictionary
+
+def sort_on(items):
+    return items["num"]
+
+def build_sorted_char_list(char_dict):
+    sorted_chars = []
+    for char, num in char_dict.items():
+        if char.isalpha():
+            temp_dict = {"char": char, "num": num}
+            sorted_chars.append(temp_dict)
+    sorted_chars.sort(reverse=True, key=sort_on)
+    #print(sorted_chars)
+    return sorted_chars
+    
